@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { RedisIoAdapter } from './redis-io/redis-io.adapter';
+// import { RedisIoAdapter } from './redis-io/redis-io.adapter';
 import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
@@ -10,11 +10,12 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
 
   // Redis Websockets
-  const redisIoAdapter = new RedisIoAdapter(app);
-  await redisIoAdapter.connectToRedis();
+  // const redisIoAdapter = new RedisIoAdapter(app);
+  // await redisIoAdapter.connectToRedis();
 
-  app.useWebSocketAdapter(redisIoAdapter);
+  // app.useWebSocketAdapter(redisIoAdapter);
 
   await app.listen(4000);
+  console.log(`Application is running on: ${await app.getUrl()}`);
 }
 bootstrap();
