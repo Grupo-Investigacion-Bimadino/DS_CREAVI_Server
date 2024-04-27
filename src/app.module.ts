@@ -9,6 +9,10 @@ import { ChatModule } from './chat/chat.module';
 import { RoomModule } from './room/room.module';
 import { AuthModule } from './auth/auth.module';
 import { ElementModule } from './element/element.module';
+import { VersionModule } from './version/version.module';
+import { HistoriesModule } from './histories/histories.module';
+import { Structure } from './structures/structure.module';
+
 
 @Module({
   imports: [
@@ -24,6 +28,9 @@ import { ElementModule } from './element/element.module';
     RoomModule,
     AuthModule,
     ElementModule,
+    VersionModule,
+    HistoriesModule,
+    Structure,
   ],
   controllers: [AppController],
   providers: [AppService],
