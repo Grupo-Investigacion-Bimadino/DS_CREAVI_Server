@@ -20,15 +20,17 @@ export class AuthService {
   ) {}
 
   async signUp(singUp: SignUpDto): Promise<{ token: string }> {
-    const { name, email, password } = singUp;
-
+    
+    const { username, email, password, picture, role } = singUp;
     const hasedPassword = await bcrypt.hash(password, 10);
 
     try {
       const user = await this.userModel.create({
-        name,
+        username,
         email,
         password: hasedPassword,
+        picture,
+        role,
       });
 
       const token = await this.jwtService.sign({ id: user._id });
@@ -42,7 +44,8 @@ export class AuthService {
   }
 
   async login(loginDto: LoginDto): Promise<{ token: string }> {
-    const { email, password } = loginDto;
+    
+    const { email, password } = loginDto;    
     const user = await this.userModel.findOne({ email });
 
     if (!user) {
@@ -57,9 +60,10 @@ export class AuthService {
 
     const userData = {
       _id: user._id,
-      name: user.name,
+      username: user.username,
       email: user.email,
       role: user.role,
+      picture: user.picture,
     };
 
     const token = await this.jwtService.sign(userData);

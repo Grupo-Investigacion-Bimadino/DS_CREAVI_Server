@@ -10,7 +10,7 @@ export class User extends Document{
      _id: mongoose.Types.ObjectId;
 
     @Prop()
-    name: string;
+    username: string;
 
     @Prop({ unique: [true, 'Email already exists'] })
     email: string;
@@ -18,7 +18,7 @@ export class User extends Document{
     @Prop()
     password: string;
 
-    @Prop()
+    @Prop({default: 'guest'})
     role: string;
 
     @Prop()
@@ -26,6 +26,9 @@ export class User extends Document{
 
     @Prop()
     createdAt: Date;
+
+    @Prop()
+    picture: string;
 
     @Prop()
     updatedAt: Date;

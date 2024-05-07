@@ -7,7 +7,7 @@ export class UserPopulateDto {
 
     @IsNotEmpty()
     @IsString()
-    readonly name: string;
+    readonly username: string;
 
     @IsNotEmpty()
     @IsEmail({}, { message: 'Invalid email' })
@@ -16,6 +16,9 @@ export class UserPopulateDto {
     @IsNotEmpty()
     @IsString()
     readonly role: string;
+
+    @IsString()
+    readonly picture: string;
 
     @IsNotEmpty()
     @IsString()
