@@ -3,7 +3,7 @@ import { IsNotEmpty, IsString, IsEmail} from 'class-validator';
 export class SignUpDto {
     @IsNotEmpty()
     @IsString()
-    readonly name: string;
+    readonly username: string;
 
     @IsNotEmpty()
     @IsEmail({}, { message: 'Invalid email' })
@@ -12,4 +12,10 @@ export class SignUpDto {
     @IsNotEmpty()
     @IsString()
     readonly password: string;
+
+    @IsString()
+    picture: string;
+
+    @IsString()
+    role: string;
 }

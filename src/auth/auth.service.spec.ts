@@ -22,11 +22,12 @@ describe('AuthService', () => {
     }
 
     const mockUser = {        
-        name: "newUser",
+        username: "newUser",
         email: "newUser@email.com",
         password: "12345678",
         role: "user",
         status: "active",
+        picture: "newUser.jpg",
         createdAt: new Date(),
         updatedAt: new Date()
     } as User;
@@ -56,9 +57,11 @@ describe('AuthService', () => {
 
     describe('signUp', () => {
         const signUpDto = {                
-            name: "newUser",
+            username: "newUser",
             email: "newUser@email.com",
-            password: "12345678"
+            password: "12345678",
+            picture: "newUser.jpg",
+            role: "guest"
         }
 
         it('should return a new user', async () => {                        
