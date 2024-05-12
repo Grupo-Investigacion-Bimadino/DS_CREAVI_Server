@@ -7,7 +7,9 @@ import { Element } from './schemas/element.schema';
 
 @Injectable()
 export class ElementService {
-  constructor(@InjectModel(Element.name) private elementModel: Model<Element>) { }
+  constructor(
+    @InjectModel(Element.name) private elementModel: Model<Element>,
+  ) {}
 
   async create(createElementDto: CreateElementDto) {
     const element = new this.elementModel(createElementDto);
@@ -20,14 +22,22 @@ export class ElementService {
     return elements;
   }
 
+  async findOneByName(name) {
+    const element = await this.elementModel.findOne({ name }).exec();
+    return element;
+  }
+
   async findOne(id: string) {
     const element = await this.elementModel.findById(id).exec();
     return element;
   }
 
   async update(id: string, updateElementDto: UpdateElementDto) {
-    const updatedElement = await this.elementModel.findByIdAndUpdate
-      (id, updateElementDto, { new: true });
+    const updatedElement = await this.elementModel.findByIdAndUpdate(
+      id,
+      updateElementDto,
+      { new: true },
+    );
     return updatedElement;
   }
 
