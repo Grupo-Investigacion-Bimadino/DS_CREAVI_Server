@@ -13,6 +13,7 @@ import { VersionModule } from './version/version.module';
 import { HistoriesModule } from './histories/histories.module';
 import { Structure } from './structures/structure.module';
 import { ContentModule } from './content/content.module';
+import { ColaborativeTeamsModule } from './colaborative_teams/colaborative_teams.module';
 
 
 @Module({
@@ -33,6 +34,7 @@ import { ContentModule } from './content/content.module';
     HistoriesModule,
     Structure,
     ContentModule,
+    ColaborativeTeamsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
