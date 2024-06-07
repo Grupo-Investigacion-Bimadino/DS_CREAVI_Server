@@ -12,6 +12,7 @@ import { ElementModule } from './element/element.module';
 import { VersionModule } from './version/version.module';
 import { HistoriesModule } from './histories/histories.module';
 import { Structure } from './structures/structure.module';
+import { ContentModule } from './content/content.module';
 
 
 @Module({
@@ -31,6 +32,7 @@ import { Structure } from './structures/structure.module';
     VersionModule,
     HistoriesModule,
     Structure,
+    ContentModule,
   ],
   controllers: [AppController],
   providers: [AppService],
